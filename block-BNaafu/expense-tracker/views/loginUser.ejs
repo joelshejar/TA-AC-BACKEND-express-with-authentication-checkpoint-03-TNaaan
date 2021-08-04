@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login User</title>
+  </head>
+  <body>
+    <h1>User Login</h1>
+    <form action="/login" method="POST">
+      <input type="email" placeholder="Email" name="email" />
+      <input type="password" placeholder="Password" name="password" />
+      <input type="submit" value="Login In" />
+      <button>
+        <a href="/">Back</a>
+      </button>
+      <button>
+        <a href="/resetPassword">Reset Password</a>
+      </button>
+    </form>
+    <div>
+      <button><a href="/auth/google">Login With Google</a></button>
+      <button><a href="/auth/github/callback">Login With Github</a></button>
+    </div>
+  </body>
+</html>
