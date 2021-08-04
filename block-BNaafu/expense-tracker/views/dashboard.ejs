@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <h1>Dashboard</h1>
+    <a href="/income">Add Income</a>
+    <a href="/expense">Add Expenses</a>
+    <a href="/logout">LogOut</a>
+    <div class="income">
+      <h2>Income</h2>
+      <% income.forEach((incomeRecord,index)=>{ %>
+      <h4><%= index+1 %>. <%= incomeRecord.source %></h4>
+      <p>Amount - ₹<%= incomeRecord.amount %></p>
+      <% }) %>
+    </div>
+    <div class="expense">
+      <h2>Expense</h2>
+      <% expense.forEach((expenseRecord,index)=>{ %>
+      <h4><%= index+1 %>. <%= expenseRecord.category %></h4>
+      <p>Amount - ₹<%= expenseRecord.amount %></p>
+      <% }) %>
+    </div>
+    <div class="savings">
+      <h2>Savings</h2>
+      <%let incomeSum = income.reduce((acc,cv)=>{ %> <% acc = acc +cv.amount %>
+      <% return acc %> <% },0) %> <%let expenseSum = expense.reduce((acc,cv)=>{
+      %> <% acc = acc +cv.amount %> <% return acc %> <% },0) %>
+
+      <h4>
+        Total Income(<%= incomeSum %>) - Total Expenses(<%= expenseSum %>) =
+        Total Savings (<%= incomeSum-expenseSum %>)
+      </h4>
+    </div>
+  </body>
+</html>
